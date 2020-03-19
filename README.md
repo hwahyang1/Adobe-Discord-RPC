@@ -21,13 +21,9 @@
 
 # 지원 프로그램
 
-**CC 2014 버전부터 지원합니다.**
-
-CC 2021 버전이 나와도 업데이트 없이 사용이 가능하실 겁니다.
-
-CC 2014 미만의 버전 사용 중 생기는 프로그램 문제는 대응을 하지 않습니다.
-
 [![RPC Info](https://github.com/hwahyang1/Adobe-Discord-RPC/blob/master/img_for_github/rpc_inf.png)](https://github.com/hwahyang1/Adobe-Discord-RPC/)
+
+**CC 2014 버전부터 지원합니다.**
 
 | 프로그램명 | 지원 여부 | 버전명 노출 | 파일명 노출 | 비고 |
 | :---: | :---: | :---: | :---: | :---: |
@@ -53,11 +49,9 @@ CC 2014 미만의 버전 사용 중 생기는 프로그램 문제는 대응을 �
 
 이후 설치 과정을 진행 하신 다음, Adobe Discord RPC를 실행 시킵니다.
 
-(실행에 필요한 Python 3.7.6은 설치파일에 같이 있으며, 설치 도중 환경변수는 수정되지 않습니다.)
-
 새 버전 알림이 뜨거나, 아무 알림도 뜨지 않는다면 정상적으로 가동 된 것입니다.
 
-이후, 지원 대상 프로그램을 가동하시면 1분 이내에 플레이 알림이 뜨게 되며, 아래와 같이 RPC가 적용됩니다.
+이후, 지원 프로그램을 가동하시면 1분 이내에 플레이 알림이 뜨게 되며, 아래와 같이 RPC가 적용됩니다.
 
 [![RPC Example](https://github.com/hwahyang1/Adobe-Discord-RPC/blob/master/img_for_github/RPC%20example.png)](https://github.com/hwahyang1/Adobe-Discord-RPC/)
 
@@ -69,7 +63,7 @@ CC 2014 미만의 버전 사용 중 생기는 프로그램 문제는 대응을 �
 
 # 저작권 안내
 
-Develop by.[화향](https://hwahyang.space)
+Develop by. [화향](https://hwahyang.space)
 
 Design by. [Tilto](https://tilto.kro.kr)
 
