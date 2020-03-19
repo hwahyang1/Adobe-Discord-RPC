@@ -1,3 +1,4 @@
+@echo off
 echo.> stop.req
 timeout 1 > NUL
 taskkill /F /IM python.exe

@@ -1,3 +1,3 @@
 @echo off
-run.vbs
+start.vbs
 exit

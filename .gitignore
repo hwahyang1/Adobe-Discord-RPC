@@ -1,6 +1,8 @@
 rpc_ico
 ico_design
 python376
+installer
 adoberpc_ver.json
 log.log
 stop.req
+!runbuild.bat
