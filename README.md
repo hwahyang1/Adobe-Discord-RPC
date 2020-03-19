@@ -7,7 +7,7 @@
 
 [![GitHub repo size](https://img.shields.io/github/repo-size/hwahyang1/Adobe-Discord-RPC?style=for-the-badge)](https://github.com/hwahyang1/Adobe-Discord-RPC) [![GitHub issues](https://img.shields.io/github/issues/hwahyang1/Adobe-Discord-RPC?style=for-the-badge)](https://github.com/hwahyang1/Adobe-Discord-RPC/issues) [![GitHub pull requests](https://img.shields.io/github/issues-pr/hwahyang1/Adobe-Discord-RPC?style=for-the-badge)](https://github.com/hwahyang1/Adobe-Discord-RPC/pulls)
 
-[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/hwahyang1/Adobe-Discord-RPC?include_prereleases&style=for-the-badge)](https://github.com/hwahyang1/Adobe-Discord-RPC/release) [![GitHub All Releases](https://img.shields.io/github/downloads/hwahyang1/Adobe-Discord-RPC/total?style=for-the-badge)](https://github.com/hwahyang1/Adobe-Discord-RPC/release)
+[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/hwahyang1/Adobe-Discord-RPC?include_prereleases&style=for-the-badge)](https://github.com/hwahyang1/Adobe-Discord-RPC/releases) [![GitHub All Releases](https://img.shields.io/github/downloads/hwahyang1/Adobe-Discord-RPC/total?style=for-the-badge)](https://github.com/hwahyang1/Adobe-Discord-RPC/release)
 
 [![GitHub](https://img.shields.io/github/license/hwahyang1/Adobe-Discord-RPC?style=for-the-badge)](https://github.com/hwahyang1/Adobe-Discord-RPC/blob/master/LICENSE) [![pypresence](https://img.shields.io/badge/using-pypresence-00bb88.svg?style=for-the-badge&logo=discord&logoWidth=20)](https://github.com/qwertyquerty/pypresence)
 
