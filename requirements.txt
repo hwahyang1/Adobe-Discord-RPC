@@ -1,0 +1,7 @@
+pypresence==3.3.2
+DateTime==4.3
+plyer==1.4.2
+requests==2.23.0
+psutil==5.7.0
+pywin32==227
+pandas==1.0.1
