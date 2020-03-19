@@ -1,4 +1,4 @@
-# Adobe-Discord-RPC
+# Adobe Discord RPC
 
 [![Cover Image](https://github.com/hwahyang1/Adobe-Discord-RPC/blob/master/img_for_github/cover.png)](https://github.com/hwahyang1/Adobe-Discord-RPC/)
 
@@ -11,15 +11,15 @@
 
 [![GitHub](https://img.shields.io/github/license/hwahyang1/Adobe-Discord-RPC?style=for-the-badge)](https://github.com/hwahyang1/Adobe-Discord-RPC/blob/master/LICENSE) [![pypresence](https://img.shields.io/badge/using-pypresence-00bb88.svg?style=for-the-badge&logo=discord&logoWidth=20)](https://github.com/qwertyquerty/pypresence)
 
-# About Me
+# 개발자 정보
 영상을 하며 개발을 취미로 하고 있는 한국의 한 고등학생입니다.
 
 청소년 개발팀인 [Develable](https://github.com/develable)에서 팀장직을 맡고 있습니다.
 
-# About Project
+# 프로젝트 정보
 작업의 고통을 친구들과 조금 더 쉽게 나누기 위하여(?) 제작되었습니다.
 
-# Supporting Products
+# 지원 프로그램
 
 **CC 2014 버전부터 지원합니다.**
 
@@ -48,7 +48,7 @@ CC 2014 미만의 버전 사용 중 생기는 프로그램 문제는 대응을 �
 
 이곳에 나열되지 않은 프로그램 중, 지원을 원하시는 프로그램이 있으시다면 [issue](https://github.com/hwahyang1/Adobe-Discord-RPC/issues) 등을 통하여 알려주세요!
 
-# How To Use
+# 사용방법
 [Releses](https://github.com/hwahyang1/Adobe-Discord-RPC/releases)에서 최신 버전을 다운 받습니다.
 
 이후 설치 과정을 진행 하신 다음, Adobe Discord RPC를 실행 시킵니다.
@@ -67,7 +67,7 @@ CC 2014 미만의 버전 사용 중 생기는 프로그램 문제는 대응을 �
 
 ※ **코드상의 문제로 인하여 프로그램이 종료되면 자동으로 15초 뒤에 다시 가동됩니다.**
 
-# Copyright
+# 저작권 안내
 
 Develop by.[화향](https://hwahyang.space)
 
@@ -75,7 +75,7 @@ Design by. [Tilto](https://tilto.kro.kr)
 
 Some Icons by. [Flaticon](https://flaticon.com)
 
-# Contact
+# 연락처
 [E-Mail : hwahyang@adh.kro.kr](mailto:hwahyang@adh.kro.kr)
 
 [Twitter : @\_hwahyang\_](https://twitter.com/_hwahyang_)
