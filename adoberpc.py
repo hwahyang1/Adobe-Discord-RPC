@@ -8,7 +8,7 @@
       / ____ \ (_| | (_) | |_) |  __/ | |__| | \__ \ (_| (_) | | | (_| | | | \ \| |    | |____ 
      /_/    \_\__,_|\___/|_.__/ \___| |_____/|_|___/\___\___/|_|  \__,_| |_|  \_\_|     \_____|
  
-    Ver. 3.0
+    Ver. 3.1
     © 2017-2020 화향.
     Follow GPL-3.0
     Gtihub || https://github.com/hwahyang1/Adobe-Discord-RPC
@@ -34,16 +34,9 @@ if __name__ == "__main__" :
         f.write(prnt+"\n")
         f.close()
         print(prnt)
-
-    def goout(datetime = None):
-        log("INFO", "Adobe Discord RPC가 종료됩니다.", datetime)
-        #time.sleep(30)
-        #os.system('adoberpc.exe')
-        exit()
-
     try:
         from pypresence import Presence
-        import datetime, os, requests, sys, psutil, json, win32gui, win32process, time, pandas, plyer, subprocess, re
+        import datetime, os, requests, sys, psutil, json, win32gui, win32process, time, pandas, plyer, subprocess, re, win32ui, win32con
     except ModuleNotFoundError as e:
         if not (str(e) in 'plyer'):
             plyer.notification.notify(
@@ -55,8 +48,19 @@ if __name__ == "__main__" :
         log("ERROR", "%s 모듈이 존재하지 않습니다." % (str(e).replace('No module named ', '')))
         goout()
 
+    def goout(datetime = None):
+        log("INFO", "Adobe Discord RPC가 종료됩니다.", datetime)
+        #time.sleep(30)
+        #os.system('adoberpc.exe')
+        #exit()
+        sys.exit()
+
     def checkver():
-        nowver = 3.0
+        # 20-03-23 방식 변경
+        #          새 버전 알림 -> 새 버전 알림 후 업데이트 수락하면 업데이터 가동
+        with open('programver.json', encoding='utf8') as f:
+            data = json.load(f)
+        nowver = data['ver']
         r = requests.get("https://cdn.hwahyang.space/adoberpc_ver.json")
         r = r.text
         data = json.loads(r)
@@ -69,6 +73,11 @@ if __name__ == "__main__" :
                 app_name='Adobe Discord RPC',
                 app_icon='icon_alpha.ico'
             )
+            res = win32ui.MessageBox("새 버전이 있습니다.\nV%s (현재) -> V%s (최신)\n업데이트를 진행할까요?" % (nowver, latest), "Adobe Discord RPC", win32con.MB_YESNO)
+            if res == win32con.IDYES:
+                os.system('start adoberpc_updater.exe')
+                open("stop.req", 'w').close()
+                goout()
         else:
             log("DEBUG", "버전 변동 없음. || 현재 : %s || 최신 : %s" % (nowver, latest), datetime)
             #notification.notify(
@@ -92,26 +101,19 @@ if __name__ == "__main__" :
         #            element['pid'] = process_info['pid']
         #            return element
         # 20-03-22 Tasklist를 반복해서 돌리는 것으로 대체. 반복 횟수 적어서 CPU 소모 적을듯
+        # 20-03-23 CPU 소모 적기는 개뿔 똑같네 다른 방법 찾아야할듯
         for now_json in data:
-            fd_popen = subprocess.Popen(["powershell.exe", "tasklist /FI 'ImageName eq %s' /v /fo List" % (now_json['processName'])], stdout=subprocess.PIPE).stdout
+            si = subprocess.STARTUPINFO()
+            si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+            
+            fd_popen = subprocess.Popen(["powershell.exe", "tasklist /FI 'ImageName eq %s' /v /fo List" % (now_json['processName'])], stdin=subprocess.PIPE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, startupinfo=si).stdout
             resp = fd_popen.read().strip()
             fd_popen.close()
             resp = resp.decode()
-            ################################################################
-            # Image Name:   Photoshop.exe                                  #
-            # PID:          17096                                          #
-            # Session Name: Console                                        #
-            # Session#:     9                                              #
-            # Mem Usage:    776,692 K                                      #
-            # Status:       Running                                        #
-            # User Name:    USER-PC\USER                                   #
-            # CPU Time:     0:00:25                                        #
-            # Window Title: HwaHyang_08_White.png @ 66.7% (Layer 1, RGB/8) #
-            ################################################################
             if resp == '' or resp.startswith('INFO') or resp.startswith('정보'): # 왜 두가지야
+                time.sleep(0.1)
                 pass
             else:
-                print(resp)
                 pidsplit = resp.split("\n")[1]
                 pid = re.findall(r'\d+', pidsplit)
                 wtsplit = resp.split("\n")[8]
@@ -139,7 +141,10 @@ if __name__ == "__main__" :
             CommandLine
             "C:\Program Files\Adobe\Adobe Photoshop 2020\Photoshop.exe"
         """
-        fd_popen = subprocess.Popen(["powershell.exe", "wmic process where \"ProcessID=%s\" get CommandLine" % (pinfo['pid'])], stdout=subprocess.PIPE).stdout
+        si = subprocess.STARTUPINFO()
+        si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+
+        fd_popen = subprocess.Popen(["powershell.exe", "wmic process where \"ProcessID=%s\" get CommandLine" % (pinfo['pid'])], stdin=subprocess.PIPE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, startupinfo=si).stdout
         path_all = fd_popen.read().strip()
         fd_popen.close()
         path = path_all.decode().split(pinfo['publicName'])[1]
@@ -148,14 +153,6 @@ if __name__ == "__main__" :
         return path
 
     def isresponding(name, datetime):
-        #p = subprocess.Popen(["powershell.exe", 
-        #      "Get-Process rabiribi | Where-Object {$_.Responding -eq $true}"], 
-        #      stdout=sys.stdout)
-        #output, error = p.communicate()
-        #sdfg = os.system('powershell.exe Get-Process rabiribi | Where-Object {$_.Responding -eq $true}')
-        #sdfg = os.system('powershell.exe Get-Process rabiribi')
-        #rc = p.returncode
-        #rc = subprocess.call(["C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\powershell.exe", "Get-Process rabiribi | Where-Object {$_.Responding -eq $true}"])
         # 20-03-19 이거 응답없음이면 아무것도 반환 안하는데 글케 되면 파일안생김 그거 이용하면 될듯
         #subprocess.Popen(["powershell.exe", "Get-Process %s | Where-Object {$_.Responding -eq $true} | tee-Object -file '%s/responding.txt'" % (name, os.getcwd())])
         #time.sleep(1.5)
@@ -220,7 +217,7 @@ if __name__ == "__main__" :
                     if pinfo == None:
                         log("DEBUG", "발견된 프로세스 없음", datetime)
                         log("DEBUG", "30초 후 다시 시도..", datetime)
-                        time.sleep(5)
+                        time.sleep(30)
                         continue
                     window_title = pinfo['window_title']
                     a = False # 루프 종료

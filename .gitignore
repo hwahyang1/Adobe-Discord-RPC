@@ -1,8 +1,21 @@
+# Build Files
+! runbuild.bat
+__pycache__
+build
+dist
+adoberpc.spec
+adoberpc_updater.spec
+
+# Design Files
 rpc_ico
 ico_design
-python376
-installer
+design sample
+
+# For Web
+latest
 adoberpc_ver.json
+
+# Etc
+installer
 log.log
-stop.req
-!runbuild.bat
+updater.log

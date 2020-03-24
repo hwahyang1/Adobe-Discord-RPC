@@ -23,15 +23,11 @@ Max OS 지원 계획은 현재 없습니다.
 
 # 지원 프로그램
 
-**어도비 계열 프로그램은 CC 2014 버전부터 지원합니다.**
-
-CC 2021 버전이 나와도 업데이트 없이 사용이 가능하실 겁니다.
-
-CC 2014 미만의 버전 사용 중 생기는 프로그램 문제는 대응을 하지 않습니다.
-
 [![RPC Info](https://github.com/hwahyang1/Adobe-Discord-RPC/blob/master/img_for_github/rpc_inf.png)](https://github.com/hwahyang1/Adobe-Discord-RPC/)
 
-**CC 2014 버전부터 지원합니다.**
+**어도비 계열 프로그램은 CC 2014 버전부터 지원합니다.**
+
+**이외 프로그램 (C4D, Blender 등)은 이론상 모든 버전을 지원하나, 가급적 최신 버전 사용을 권장드립니다.**
 
 | 프로그램명 | 지원 여부 | 버전명 노출 | 파일명 노출 | 비고 |
 | :---: | :---: | :---: | :---: | :---: |
@@ -49,8 +45,6 @@ CC 2014 미만의 버전 사용 중 생기는 프로그램 문제는 대응을 �
 | Adobe XD | O | X | X | 실행 인식 안 될 수도 있음. |
 | Blender | O | O | O | Special Thx. PenguinMilk17 |
 | Maxon Cinema 4D | O | O | O | Special Thx. 삼양 |
-| Adobe Lightroom | X | - | - | 실행 인식 문제로 개발 단계에서 제외함. |
-| Adobe Acrobat Reader | X | - | - | 추후 지원 가능성 있으나, 현재는 미지원 대상. |
 
 이곳에 나열되지 않은 프로그램 중, 지원을 원하시는 프로그램이 있으시다면 [issue](https://github.com/hwahyang1/Adobe-Discord-RPC/issues) 등을 통하여 알려주세요!
 
@@ -59,9 +53,9 @@ CC 2014 미만의 버전 사용 중 생기는 프로그램 문제는 대응을 �
 
 이후 설치 과정을 진행 하신 다음, Adobe Discord RPC를 실행 시킵니다.
 
-새 버전 알림이 뜨거나, 아무 알림도 뜨지 않는다면 정상적으로 가동 된 것입니다.
+아무 알림도 뜨지 않는 것이 정상입니다. 업데이트 알림이 뜰 경우, 업데이트를 진행 하시면 됩니다.
 
-이후, 지원 프로그램을 가동하시면 1분 이내에 플레이 알림이 뜨게 되며, 아래와 같이 RPC가 적용됩니다.
+실행 이후, 지원 프로그램을 가동하시면 1분 이내에 플레이 알림이 뜨게 되며, 아래와 같이 RPC가 적용됩니다.
 
 [![RPC Example](https://github.com/hwahyang1/Adobe-Discord-RPC/blob/master/img_for_github/RPC%20example.png)](https://github.com/hwahyang1/Adobe-Discord-RPC/)
 

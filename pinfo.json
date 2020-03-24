@@ -71,7 +71,7 @@
 {
     "processName": "indesign.exe",
     "publicName": "Adobe InDesign",
-    "getver": -1,
+    "getver": 0,
     "splitBy": " @ ",
     "splitIndex": 0,
     "appid": 689733909897805834,
@@ -91,7 +91,7 @@
 {
     "processName": "animate.exe",
     "publicName": "Adobe Animate",
-    "getver": -1,
+    "getver": 0,
     "splitBy": "미친얘는또왜창네임전체가파일명이냐와",
     "splitIndex": 0,
     "appid": 689736767393234956,
@@ -101,7 +101,7 @@
 {
     "processName": "dreamweaver.exe",
     "publicName": "Adobe Dreamweaver",
-    "getver": -1,
+    "getver": 0,
     "splitBy": "뭔놈의망할프로그램은파일안열면버전나오고파일열면창전체가파일명이야",
     "splitIndex": 0,
     "appid": 689736767393234956,
