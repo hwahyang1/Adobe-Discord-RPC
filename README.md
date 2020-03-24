@@ -43,8 +43,8 @@ Max OS 지원 계획은 현재 없습니다.
 | Adobe Animate | O | O | O | - |
 | Adobe Dreamweaver | O | O | O | - |
 | Adobe XD | O | X | X | 실행 인식 안 될 수도 있음. |
-| Blender | O | O | O | Special Thx. PenguinMilk17 |
-| Maxon Cinema 4D | O | O | O | Special Thx. 삼양 |
+| Blender | O | O | O | - |
+| Maxon Cinema 4D | O | O | O | - |
 
 이곳에 나열되지 않은 프로그램 중, 지원을 원하시는 프로그램이 있으시다면 [issue](https://github.com/hwahyang1/Adobe-Discord-RPC/issues) 등을 통하여 알려주세요!
 
