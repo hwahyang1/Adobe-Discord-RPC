@@ -24,6 +24,10 @@
 
 Max OS 지원 계획은 현재 없습니다.
 
+# 프로그램 구조
+
+[![Program logic](https://github.com/hwahyang1/Adobe-Discord-RPC/blob/master/img_for_github/program_logic.png)](https://github.com/hwahyang1/Adobe-Discord-RPC/)
+
 # 지원 프로그램
 
 [![RPC Info](https://github.com/hwahyang1/Adobe-Discord-RPC/blob/master/img_for_github/rpc_inf.png)](https://github.com/hwahyang1/Adobe-Discord-RPC/)
