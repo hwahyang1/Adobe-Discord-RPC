@@ -19,10 +19,21 @@
 
 청소년 개발팀인 [Develable](https://github.com/develable)에서 팀장직을 맡고 있습니다.
 
-# 프로젝트 정보
-작업의 고통을 친구들과 조금 더 쉽게 나누기 위하여(?) 제작되었습니다.
+# 지원 환경
 
-Max OS 지원 계획은 현재 없습니다.
+**32비트 64비트 모두 지원 합니다.**
+
+```
+Windows 10 Home/Pro
+
+Windows 8 Pro
+
+Windows 7 Pro
+```
+
+이곳에 나열되지 않은 환경이라도 **Windows 7 이상일 경우, `tasklist.exe`만 있으면 이용 가능**합니다.
+
+cmd(명령 프롬포트)에서 `tasklist` 명령어를 입력해서 확인하세요.
 
 # 프로그램 구조
 
