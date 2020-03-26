@@ -3,7 +3,7 @@
 [![Cover Image](https://github.com/hwahyang1/Adobe-Discord-RPC/blob/master/img_for_github/cover.png)](https://github.com/hwahyang1/Adobe-Discord-RPC/)
 
 
-**해당 프로젝트는 오픈소스 프로젝트이며, 디스코드 (Discord. Inc), Adobe와는 별개의 서드파티 플러그인임을 알립니다.**
+**해당 프로젝트는 오픈소스 프로젝트이며, Discord. Inc, Adobe를 포함한 모든 기업과는 별개의 서드파티 플러그인임을 알립니다.**
 
 [![pypresence](https://img.shields.io/badge/using-pypresence-00bb88.svg?style=for-the-badge&logo=discord&logoWidth=20)](https://github.com/qwertyquerty/pypresence)
 
