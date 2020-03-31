@@ -8,7 +8,7 @@
       / ____ \ (_| | (_) | |_) |  __/ | |__| | \__ \ (_| (_) | | | (_| | | | \ \| |    | |____ 
      /_/    \_\__,_|\___/|_.__/ \___| |_____/|_|___/\___\___/|_|  \__,_| |_|  \_\_|     \_____|
  
-    Ver. U1.0
+    Ver. U1.1
     © 2017-2020 화향.
     Follow GPL-3.0
     Gtihub || https://github.com/hwahyang1/Adobe-Discord-RPC
@@ -20,9 +20,7 @@
     Created by: PyQt5 UI code generator 5.14.1
 """
 
-# -*- coding: utf-8 -*-
-
-updater = 1.0
+updater = 1.1
 site = "https://cdn.hwahyang.space/latest/"
 
 if __name__ == "__main__" :
@@ -40,7 +38,6 @@ if __name__ == "__main__" :
         print(prnt)
 
     try:
-        from pypresence import Presence
         from PyQt5 import QtCore, QtGui, QtWidgets, QtTest
         import zipfile, hashlib, datetime, os, requests, sys, win32ui, json, time, subprocess, urllib.request, shutil, webbrowser
     except ModuleNotFoundError as e:
@@ -48,7 +45,12 @@ if __name__ == "__main__" :
         goout()
 
     def goout(datetime = None):
+        try:
+            os.remove('stop.req')
+        except FileNotFoundError:
+            asdf = 0
         perform_log("INFO", "Adobe Discord RPC 업데이터 종료.", datetime)
+        #exit()
         sys.exit()
 
     def increase_percent(ui, current, end):
@@ -221,7 +223,8 @@ if __name__ == "__main__" :
                 log = change_logs(ui, log, "관리자 권한을 묻는 메시지가 나오면 '예'를 눌러주세요.")
                 QtTest.QTest.qWait(1000)
                 os.system('exit.lnk')
-                QtTest.QTest.qWait(5000)
+                log = change_logs(ui, log, "종료 딜레이를 감안하여 10초 대기...")
+                QtTest.QTest.qWait(8000)
 
             QtTest.QTest.qWait(2000)
 
@@ -299,12 +302,16 @@ if __name__ == "__main__" :
                 log = change_logs(ui, log, "임시 폴더 삭제 중...")
                 QtTest.QTest.qWait(2000)
 
+                try:
+                    os.remove('./stop.req')
+                except FileNotFoundError:
+                    print("A")
                 shutil.rmtree('./temp')
 
                 QtTest.QTest.qWait(1800)
                 ui.label.setText("     프로그램이 곧 자동으로 실행됩니다.")
                 log = change_logs(ui, log, "Adobe Discord RPC를 실행하고 있습니다.\n\n해당 업데이터는 10초 뒤 자동으로 종료됩니다.")
-                os.system('start.bat')
+                os.system('startup.bat') # 아 start.bat 짜피 죽어서 이케해놨구나
                 QtTest.QTest.qWait(10000)
                 goout(datetime)
             else:

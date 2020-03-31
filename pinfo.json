@@ -1,4 +1,24 @@
 [{
+    "processName": "cinema 4d.exe",
+    "publicName": "Cinema 4D",
+    "getver": 0,
+    "splitBy": "[",
+    "splitIndex": 1,
+    "appid": 691218168743723008,
+    "largeText": "버전 : %Ver%",
+    "smallText": "파일명 : %Filename%"
+},
+{
+    "processName": "blender.exe",
+    "publicName": "Blender",
+    "getver": 0,
+    "splitBy": "[",
+    "splitIndex": 1,
+    "appid": 690447743738576946,
+    "largeText": "버전 : %Ver%",
+    "smallText": "파일명 : %Filename%"
+},
+{
     "processName": "photoshop.exe",
     "publicName": "Adobe Photoshop",
     "getver": 0,
@@ -117,24 +137,4 @@
     "appid": 689740654657798146,
     "largeText": "신나는 디자인",
     "smallText": "디자인 하는 중"
-},
-{
-    "processName": "blender.exe",
-    "publicName": "Blender",
-    "getver": 0,
-    "splitBy": "[",
-    "splitIndex": 1,
-    "appid": 690447743738576946,
-    "largeText": "버전 : %Ver%",
-    "smallText": "파일명 : %Filename%"
-},
-{
-    "processName": "cinema 4D.exe",
-    "publicName": "Maxon Cinema 4D",
-    "getver": 0,
-    "splitBy": "[",
-    "splitIndex": 1,
-    "appid": 691218168743723008,
-    "largeText": "버전 : %Ver%",
-    "smallText": "파일명 : %Filename%"
 }]

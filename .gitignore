@@ -1,10 +1,9 @@
 # Build Files
-! runbuild.bat
 __pycache__
+! runbuild.bat
 build
 dist
-adoberpc.spec
-adoberpc_updater.spec
+*.spec
 
 # Design Files
 rpc_ico
@@ -17,5 +16,7 @@ adoberpc_ver.json
 
 # Etc
 installer
+temp
 log.log
 updater.log
+monitor.log

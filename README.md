@@ -35,6 +35,8 @@ Windows 7 Pro
 
 cmd(명령 프롬포트)에서 `tasklist` 명령어를 입력해서 확인하세요.
 
+**__MAX OS X 지원 계획은 없습니다.__**
+
 # 프로그램 구조
 
 [![Program logic](https://github.com/hwahyang1/Adobe-Discord-RPC/blob/master/img_for_github/program_logic.png)](https://github.com/hwahyang1/Adobe-Discord-RPC/)
@@ -60,7 +62,7 @@ cmd(명령 프롬포트)에서 `tasklist` 명령어를 입력해서 확인하세
 | Adobe Dimension | O | X | X | - |
 | Adobe Animate | O | O | O | - |
 | Adobe Dreamweaver | O | O | O | - |
-| Adobe XD | O | X | X | 실행 인식 안 될 수도 있음. |
+| Adobe XD | O | X | X | - |
 | Blender | O | O | O | - |
 | Maxon Cinema 4D | O | O | O | - |
 
@@ -81,17 +83,17 @@ cmd(명령 프롬포트)에서 `tasklist` 명령어를 입력해서 확인하세
 
 이를 원치 않으시면, Win + R키를 눌러 `shell:startup`을 입력하신 다음, `Run Adobe Discord RPC` 바로가기를 삭제하시면 됩니다.
 
-※ **코드상의 문제로 인하여 프로그램이 종료되면 자동으로 15초 뒤에 다시 가동됩니다.**
+※ **코드상의 문제로 인하여 프로그램이 종료되면 자동으로 60초 안에 다시 가동됩니다.**
 
 # 저작권 안내
 
 Develop by. [화향](https://hwahyang.space)
 
-Design by. [Tilto](https://tilto.kro.kr), Wide7
+Design by. [화향](https://hwahyang.space), [Tilto](https://tilto.kro.kr), Wide7
 
-Some Icons by. [Flaticon](https://flaticon.com), [dribble](https://dribbble.com)
+Some Icons by. [Flaticon](https://flaticon.com), [dribbble](https://dribbble.com)
 
-Special Thanks. PenguinMilk17, 삼양
+Special Thanks. PenguinMilk17, 삼양, Uin
 
 # 연락처
 [E-Mail : hwahyang@adh.kro.kr](mailto:hwahyang@adh.kro.kr)

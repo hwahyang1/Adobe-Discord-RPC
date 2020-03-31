@@ -8,17 +8,12 @@
       / ____ \ (_| | (_) | |_) |  __/ | |__| | \__ \ (_| (_) | | | (_| | | | \ \| |    | |____ 
      /_/    \_\__,_|\___/|_.__/ \___| |_____/|_|___/\___\___/|_|  \__,_| |_|  \_\_|     \_____|
  
-    Ver. 3.1
+    Ver. 3.2
     © 2017-2020 화향.
     Follow GPL-3.0
     Gtihub || https://github.com/hwahyang1/Adobe-Discord-RPC
 
     :: Program Core ::
-"""
-
-"""
-    :: flow ::
-    모듈검증 -> 버전검증 -> 실행검증 -> RPC 연결 -> 연결알림 -> 30초 간격으로 실행검증
 """
 
 if __name__ == "__main__" :
@@ -47,6 +42,12 @@ if __name__ == "__main__" :
             )
         log("ERROR", "%s 모듈이 존재하지 않습니다." % (str(e).replace('No module named ', '')))
         goout()
+
+        
+    try:
+        os.remove('./stop.req')
+    except FileNotFoundError:
+        print("A")
 
     def goout(datetime = None):
         log("INFO", "Adobe Discord RPC가 종료됩니다.", datetime)
@@ -109,9 +110,14 @@ if __name__ == "__main__" :
             fd_popen = subprocess.Popen(["powershell.exe", "tasklist /FI 'ImageName eq %s' /v /fo List" % (now_json['processName'])], stdin=subprocess.PIPE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, startupinfo=si).stdout
             resp = fd_popen.read().strip()
             fd_popen.close()
-            resp = resp.decode()
+            try:
+                resp = resp.decode("utf-8")
+            except UnicodeDecodeError:
+                resp = resp.decode("ansi") # Fucking ANSI...
+            
+            #print(resp)
             if resp == '' or resp.startswith('INFO') or resp.startswith('정보'): # 왜 두가지야
-                time.sleep(0.1)
+                #time.sleep(0.1)
                 pass
             else:
                 pidsplit = resp.split("\n")[1]
@@ -147,7 +153,11 @@ if __name__ == "__main__" :
         fd_popen = subprocess.Popen(["powershell.exe", "wmic process where \"ProcessID=%s\" get CommandLine" % (pinfo['pid'])], stdin=subprocess.PIPE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, startupinfo=si).stdout
         path_all = fd_popen.read().strip()
         fd_popen.close()
-        path = path_all.decode().split(pinfo['publicName'])[1]
+        try:
+            path_all = path_all.decode("utf-8")
+        except UnicodeDecodeError:
+            path_all = path_all.decode("ansi")
+        path = path_all.split(pinfo['publicName'])[1]
         path = path.split('\\')[0]
         path = path.replace(" ", '')
         return path
@@ -222,9 +232,8 @@ if __name__ == "__main__" :
                     window_title = pinfo['window_title']
                     a = False # 루프 종료
                 except IndexError as e:
-                    log("ERROR", "미정의 애러.. 10초 후 다시 시도 : %s" % (e), datetime)
+                    log("ERROR", "정의 애러.. 10초 후 다시 시도 : %s" % (e), datetime)
                     time.sleep(10)
-
 
             RPC = Presence(pinfo['appid'])
 
@@ -284,15 +293,15 @@ if __name__ == "__main__" :
                                 start=int(time.mktime(dt.timetuple()))
                             )
                         except Exception as e:
-                            log("ERROR", "pypresence 갱신 실패... 30초 대기 : %s" % (e), datetime)
+                            log("ERROR", "pypresence 갱신 실패... 10초 대기 : %s" % (e), datetime)
                             plyer.notification.notify(
                                 title='Adobe Discord RPC',
-                                message='RPC 갱신에 실패하였습니다.\n30초 후 다시 시도합니다.',
+                                message='RPC 갱신에 실패하였습니다.\n10초 후 다시 시도합니다.',
                                 app_name='Adobe Discord RPC',
                                 app_icon='icon_alpha.ico'
                             )
                             b = False
-                            time.sleep(30)
+                            time.sleep(10)
                         else:
                             log("DEBUG", "pypresence 리턴 : %s" % (rtn), datetime)
                             time.sleep(10)
@@ -301,6 +310,7 @@ if __name__ == "__main__" :
                                 pass
                             else:
                                 # 정상실행 경우
+                                # RPC.clear(pid=os.getpid())
                                 c = False
                                 pass
                 else:
@@ -324,7 +334,7 @@ if __name__ == "__main__" :
                     else:
                         log("DEBUG", "pypresence 리턴 : %s" % (rtn), datetime)
                         time.sleep(30)
-                        #time.sleep(5) # 테스트용
+                        #time.sleep(5) # 테스트용인데 왜 주석 안하고 배포한거야
 
                         try:
                             window_title = get_window_title(pinfo['pid'])
@@ -337,12 +347,13 @@ if __name__ == "__main__" :
                         except IndexError as e:
                             # PID 변경 OR 프로그램 종료. 같은 PID 금방 다시 할당할 일 없음.
                             log("DEBUG", "PID 변동 OR 프로세스 종료. : %s -> %s" % (pinfo['pid'], e), datetime)
+                            RPC.clear(pid=os.getpid())
                             b = False
     except KeyboardInterrupt:
         log("DEBUG", "콘솔 단에서 중지함.", datetime)
         goout()
-    except Exception as e:
-        log("ERROR", "미정의 애러 : %s" % (e), datetime)
-        goout()
+    #except Exception as e:
+    #    log("ERROR", "미정의 애러 : %s" % (e), datetime)
+    #    goout()
 
 # End of Code.
