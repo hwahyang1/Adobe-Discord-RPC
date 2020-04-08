@@ -21,7 +21,7 @@
 """
 
 updater = 1.1
-site = "https://cdn.hwahyang.space/latest/"
+site = "https://cdn.adoberpc.hwahyang.space/"
 
 if __name__ == "__main__" :
     def perform_log(tpe, inf, datetime = None):
@@ -115,8 +115,16 @@ if __name__ == "__main__" :
                 data = json.load(f)
             nowver = data['ver']
 
+            # 파베 리밋 터졌는지 확인
+            # 파베 -> 개인서버 순으로 시도함.
+            r = requests.get(site)
+            if r.status_code != 404: # index 안해놔서 404가 맞음!
+                usest = "https://cdn.hwahyang.space/"
+            else:
+                usest = site
+
             # 업데이터 확인
-            r = requests.get("%sinstaller.json" % (site))
+            r = requests.get("%slatest/installer.json" % (usest))
             if r.status_code != 200:
                 self.label.setText("                 업데이트 취소됨.")
                 ui.progressBar.setValue(100)
@@ -133,13 +141,13 @@ if __name__ == "__main__" :
                 log = change_logs(ui, log, "업데이터의 업데이트를 진행합니다.\n\n업데이트 완료 후에는 자동으로 메인 프로그램 업데이트를 진행합니다.")
                 QtTest.QTest.qWait(2000)
 
-                perform_log("DEBUG", "다운로드 시작 : %s%s" % (site, data['file']['name']), datetime)
+                perform_log("DEBUG", "다운로드 시작 : %slatest/%s" % (usest, data['file']['name']), datetime)
 
                 opener=urllib.request.build_opener()
                 opener.addheaders=[('User-Agent','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1941.0 Safari/537.36')]
                 urllib.request.install_opener(opener)
                 try:
-                    urllib.request.urlretrieve("%s%s" % (site, data['file']['name']), "./temp/adoberpc_updater.exe")
+                    urllib.request.urlretrieve("%slatest/%s" % (usest, data['file']['name']), "./temp/adoberpc_updater.exe")
                 except urllib.error.HTTPError as e:
                     log = change_logs(ui, log, "예기치 못한 문제가 발생했습니다.\n동일한 문제가 지속적으로 발생되면, update.log 파일과 함께 개발자에게 알려주세요.\n\n해당 프로그램은 10초 뒤 자동으로 종료됩니다.")
                     perform_log("ERROR", "lookin' as server down! : %s" % (e), datetime)
@@ -171,7 +179,7 @@ if __name__ == "__main__" :
                 log = change_logs(ui, log, "업데이터가 최신 버전(U%s)입니다." % (updater))
 
             # 코어 확인
-            r = requests.get("https://cdn.hwahyang.space/adoberpc_ver.json")
+            r = requests.get("%sadoberpc_ver.json" % (usest))
             if r.status_code != 200:
                 self.label.setText("                 업데이트 취소됨.")
                 ui.progressBar.setValue(100)
@@ -230,21 +238,21 @@ if __name__ == "__main__" :
 
             log = change_logs(ui, log, "정보 읽는 중..")
             increase_percent(ui, 0, 8)
-            r = requests.get("%sinfo.json" % (site))
+            r = requests.get("%sinfo.json" % (usest))
             r = r.text
             data = json.loads(r)
             QtTest.QTest.qWait(1500)
             if data['ver'] == latest:
                 ui.label.setText("               업데이트 다운로드 중...")
                 log = change_logs(ui, log, "V%s 버전 다운로드를 시작합니다." % (latest))
-                perform_log("DEBUG", "다운로드 시작 : %s%s" % (site, data['down']), datetime)
+                perform_log("DEBUG", "다운로드 시작 : %s%s" % (usest, data['down']), datetime)
                 increase_percent(ui, 8, 20)
 
                 opener=urllib.request.build_opener()
                 opener.addheaders=[('User-Agent','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1941.0 Safari/537.36')]
                 urllib.request.install_opener(opener)
                 try:
-                    urllib.request.urlretrieve("%s%s" % (site, data['down']), "./temp/Adoberpc_latest.tmp")
+                    urllib.request.urlretrieve("%s%s" % (usest, data['down']), "./temp/Adoberpc_latest.tmp")
                 except urllib.error.HTTPError as e:
                     self.label.setText("                 업데이트 취소됨.")
                     ui.progressBar.setValue(100)

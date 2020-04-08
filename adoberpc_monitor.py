@@ -60,6 +60,8 @@ if __name__ == "__main__" :
     if len(asdf) > 3:
         goout(datetime)
 
+    log("DEBUG", "모니터링 시작.", datetime)
+
     try:
         timecount = 0
         menu_def = ['File', ['Adobe Discord RPC Monitor', '프로그램 정보', '모니터링 종료']]
@@ -80,6 +82,7 @@ if __name__ == "__main__" :
                 if menu_item == "프로그램 정보":
                     webbrowser.open("https://github.com/hwahyang1/Adobe-Discord-RPC/#readme")
             timecount += 0.01
+            
             if timecount >= 60:
                 si = subprocess.STARTUPINFO()
                 si.dwFlags |= subprocess.STARTF_USESHOWWINDOW

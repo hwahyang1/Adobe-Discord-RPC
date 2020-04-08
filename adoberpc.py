@@ -62,7 +62,9 @@ if __name__ == "__main__" :
         with open('programver.json', encoding='utf8') as f:
             data = json.load(f)
         nowver = data['ver']
-        r = requests.get("https://cdn.hwahyang.space/adoberpc_ver.json")
+        r = requests.get("https://cdn.adoberpc.hwahyang.space/adoberpc_ver.json")
+        if r.status_code != 200:
+            r = requests.get("https://cdn.hwahyang.space/adoberpc_ver.json")
         r = r.text
         data = json.loads(r)
         latest = float(data["ver"]) # 바보야 int 아니라고,,
