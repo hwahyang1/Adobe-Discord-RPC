@@ -85,6 +85,9 @@ cmd(명령 프롬포트)에서 `tasklist` 명령어를 입력해서 확인하세
 
 ※ **코드상의 문제로 인하여 프로그램이 종료되면 자동으로 60초 안에 다시 가동됩니다.**
 
+# 코드 참여 (Pull Request)
+[CONTRIBUTING.md](https://github.com/hwahyang1/Adobe-Discord-RPC/blob/master/CONTRIBUTING.md)를 참고하세요.
+
 # 저작권 안내
 
 Develop by. [화향](https://hwahyang.space)
