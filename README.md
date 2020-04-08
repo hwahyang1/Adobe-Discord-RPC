@@ -5,9 +5,9 @@
 
 **해당 프로젝트는 오픈소스 프로젝트이며, Discord. Inc, Adobe를 포함한 모든 기업과는 별개의 서드파티 플러그인임을 알립니다.**
 
-[![pypresence](https://img.shields.io/badge/using-pypresence-00bb88.svg?style=for-the-badge&logo=discord&logoWidth=20)](https://github.com/qwertyquerty/pypresence)
+[![Facebook Badge](https://img.shields.io/badge/Follow-Facebook-4267B2?style=for-the-badge)](https://www.facebook.com/adobediscordrpc) [![Twitter Badge](https://img.shields.io/badge/Follow-Twitter-1DA1F2?style=for-the-badge)](https://twitter.com/adobediscordrpc)
 
- [![GitHub](https://img.shields.io/github/license/hwahyang1/Adobe-Discord-RPC?style=for-the-badge)](https://github.com/hwahyang1/Adobe-Discord-RPC/blob/master/LICENSE) ![GitHub top language](https://img.shields.io/github/languages/top/hwahyang1/Adobe-Discord-RPC?style=for-the-badge)
+[![pypresence](https://img.shields.io/badge/using-pypresence-00bb88.svg?style=for-the-badge&logo=discord&logoWidth=20)](https://github.com/qwertyquerty/pypresence)  [![GitHub](https://img.shields.io/github/license/hwahyang1/Adobe-Discord-RPC?style=for-the-badge)](https://github.com/hwahyang1/Adobe-Discord-RPC/blob/master/LICENSE) ![GitHub top language](https://img.shields.io/github/languages/top/hwahyang1/Adobe-Discord-RPC?style=for-the-badge)
  
  [![GitHub stars](https://img.shields.io/github/stars/hwahyang1/Adobe-Discord-RPC.svg?style=for-the-badge&label=Stars)](https://github.com/hwahyang1/Adobe-Discord-RPC) 
  [![GitHub issues](https://img.shields.io/github/issues/hwahyang1/Adobe-Discord-RPC?style=for-the-badge)](https://github.com/hwahyang1/Adobe-Discord-RPC/issues) [![GitHub pull requests](https://img.shields.io/github/issues-pr/hwahyang1/Adobe-Discord-RPC?style=for-the-badge)](https://github.com/hwahyang1/Adobe-Discord-RPC/pulls)
@@ -95,9 +95,9 @@ Some Icons by. [Flaticon](https://flaticon.com), [dribbble](https://dribbble.com
 
 Special Thanks. PenguinMilk17, 삼양, Uin
 
-# 연락처
+# 문의
 [E-Mail : hwahyang@adh.kro.kr](mailto:hwahyang@adh.kro.kr)
 
-[Twitter : @\_hwahyang\_](https://twitter.com/_hwahyang_)
+[Twitter : @adobediscordrpc](https://twitter.com/adobediscordrpc)
 
-[Facebook : Channel HwaHyang](https://www.facebook.com/hwahyang1)
+[Facebook : Adobe Discord RPC](https://www.facebook.com/adobediscordrpc)
