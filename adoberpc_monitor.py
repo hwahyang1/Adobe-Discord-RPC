@@ -8,7 +8,7 @@
       / ____ \ (_| | (_) | |_) |  __/ | |__| | \__ \ (_| (_) | | | (_| | | | \ \| |    | |____ 
      /_/    \_\__,_|\___/|_.__/ \___| |_____/|_|___/\___\___/|_|  \__,_| |_|  \_\_|     \_____|
  
-    Ver. M1.0
+    Ver. M1.1
     © 2017-2020 화향.
     Follow GPL-3.0
     Gtihub || https://github.com/hwahyang1/Adobe-Discord-RPC
@@ -18,7 +18,7 @@
 
 if __name__ == "__main__" :
     try:
-        import datetime, os, sys, time, subprocess, plyer, PySimpleGUIQt, webbrowser
+        import datetime, os, sys, time, plyer, PySimpleGUIQt, webbrowser, psutil, win32gui, win32process, platform
     except ModuleNotFoundError as e:
         if not (str(e) in 'plyer'):
             plyer.notification.notify(
@@ -48,16 +48,20 @@ if __name__ == "__main__" :
         #exit()
         sys.exit()
 
-    si = subprocess.STARTUPINFO()
-    si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-                
-    fd_popen = subprocess.Popen(["powershell.exe", "tasklist /FI 'ImageName eq adoberpc_monitor.exe' /v /fo List"], stdin=subprocess.PIPE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, startupinfo=si).stdout
-    resp = fd_popen.read().strip()
-    fd_popen.close()
-    resp = resp.decode()
-    log("DEBUG", "파워셀 리턴 : %s" % (resp), datetime)
-    asdf = resp.split('adoberpc_monitor.exe')
-    if len(asdf) > 3:
+    if not (sys.platform in ['Windows', 'win32', 'cygwin']):
+        log("ERROR", "지원하지 않는 OS : %s" % (sys.platform))
+        goout(datetime)
+
+    if int(platform.release()) < 7:
+        log("ERROR", "지원하지 않는 Windows 버전 : %s" % (platform.release()))
+        goout(datetime)
+
+    log("DEBUG", "System info : %s %s v%s (%s)" % (platform.system(), platform.release(), platform.version(), platform.processor()), datetime)
+
+    getp = lambda process: (list(p.info for p in filter((lambda p: p.info['name'] and p.info['name'] == process),list(psutil.process_iter(['pid','name','exe','status'])))))
+    returns = getp('adoberpc_monitor.exe')
+
+    if len(returns) > 3:
         goout(datetime)
 
     log("DEBUG", "모니터링 시작.", datetime)
@@ -84,15 +88,9 @@ if __name__ == "__main__" :
             timecount += 0.01
             
             if timecount >= 60:
-                si = subprocess.STARTUPINFO()
-                si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-                    
-                fd_popen = subprocess.Popen(["powershell.exe", "tasklist /FI 'ImageName eq adoberpc.exe' /v /fo List"], stdin=subprocess.PIPE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, startupinfo=si).stdout
-                resp = fd_popen.read().strip()
-                fd_popen.close()
-                resp = resp.decode()
-                log("DEBUG", "파워셀 리턴 : %s" % (resp), datetime)
-                if resp == '' or resp.startswith('INFO') or resp.startswith('정보'):
+                returns = getp('adoberpc.exe')
+
+                if len(returns) == 0:
                     log("INFO", "프로그램 미가동.. 파일 확인중", datetime)
                     if os.path.isfile('stop.req'):
                         log("INFO", "가동 중지 요청 확인됨.", datetime)

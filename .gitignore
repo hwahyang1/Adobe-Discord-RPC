@@ -1,6 +1,6 @@
 # Build Files
 __pycache__
-! runbuild.bat
+! core/*
 build
 dist
 *.spec

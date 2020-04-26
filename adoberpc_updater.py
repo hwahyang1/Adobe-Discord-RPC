@@ -8,7 +8,7 @@
       / ____ \ (_| | (_) | |_) |  __/ | |__| | \__ \ (_| (_) | | | (_| | | | \ \| |    | |____ 
      /_/    \_\__,_|\___/|_.__/ \___| |_____/|_|___/\___\___/|_|  \__,_| |_|  \_\_|     \_____|
  
-    Ver. U1.1
+    Ver. U1.2
     © 2017-2020 화향.
     Follow GPL-3.0
     Gtihub || https://github.com/hwahyang1/Adobe-Discord-RPC
@@ -20,7 +20,7 @@
     Created by: PyQt5 UI code generator 5.14.1
 """
 
-updater = 1.1
+updater = 1.2
 site = "https://cdn.adoberpc.hwahyang.space/"
 
 if __name__ == "__main__" :
@@ -39,7 +39,7 @@ if __name__ == "__main__" :
 
     try:
         from PyQt5 import QtCore, QtGui, QtWidgets, QtTest
-        import zipfile, hashlib, datetime, os, requests, sys, win32ui, json, time, subprocess, urllib.request, shutil, webbrowser
+        import zipfile, hashlib, datetime, os, requests, sys, win32ui, json, time, urllib.request, shutil, webbrowser, psutil
     except ModuleNotFoundError as e:
         perform_log("ERROR", "%s 모듈이 존재하지 않습니다." % (str(e).replace('No module named ', '')))
         goout()
@@ -107,7 +107,7 @@ if __name__ == "__main__" :
             self.label.setText(_translate("Dialog", "                업데이트 준비중..."))
 
         def runScript(self):
-            log = change_logs(ui, "", "Adobe Discord RPC Updater Ver. U%s\nDevelop By. 화향\nUpdater Icon Design By. Tilto\n" % (updater))
+            log = change_logs(ui, "", "Adobe Discord RPC Updater Ver. U%s\nDevelop By. 화향\nUpdater Icon Design By. 화향, Tilto\n" % (updater))
 
             if not os.path.isdir('./temp'):
                 os.makedirs('./temp')
@@ -179,7 +179,7 @@ if __name__ == "__main__" :
                 log = change_logs(ui, log, "업데이터가 최신 버전(U%s)입니다." % (updater))
 
             # 코어 확인
-            r = requests.get("%sadoberpc_ver.json" % (usest))
+            r = requests.get("%slatest/info.json" % (usest))
             if r.status_code != 200:
                 self.label.setText("                 업데이트 취소됨.")
                 ui.progressBar.setValue(100)
@@ -189,7 +189,7 @@ if __name__ == "__main__" :
                 goout(datetime)
             r = r.text
             data = json.loads(r)
-            latest = float(data["ver"])
+            latest = float(data["nowver"])
             if latest > nowver:
                 perform_log("DEBUG", "코어 버전 변동 있음. || 현재 : %s || 최신 : %s" % (nowver, latest), datetime)
             else:
@@ -202,7 +202,7 @@ if __name__ == "__main__" :
 
             log = change_logs(ui, log, "현재 버전 : V%s\n최신 버전 : V%s" % (nowver, latest))
 
-            if data['installer'] == False:
+            if data['installer'] == False or float(data['minver']) == nowver:
                 log = change_logs(ui, log, "현재 버전은 직접 설치 파일을 다운 받아서 실행하셔야 합니다.\nGithub 페이지를 자동으로 실행합니다.\n\n해당 프로그램은 10초 뒤 자동으로 종료됩니다.")
                 webbrowser.open("https://github.com/hwahyang1/Adobe-Discord-RPC/releases")
                 QtTest.QTest.qWait(10000)
@@ -212,18 +212,13 @@ if __name__ == "__main__" :
             log = change_logs(ui, log, "메인 프로그램 실행 여부를 체크합니다.. 잠시만 기다려 주세요")
             QtTest.QTest.qWait(2000)
 
-            si = subprocess.STARTUPINFO()
-            si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-
-            # 얘 왜 창 없애니까 저러냐
-            fd_popen = subprocess.Popen(["powershell.exe", "tasklist /FI 'ImageName eq adoberpc.exe' /v /fo List"], stdin=subprocess.PIPE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, startupinfo=si).stdout
-            resp = fd_popen.read().strip()
-            fd_popen.close()
-            resp = resp.decode()
+            getp = lambda process: (list(p.info for p in filter((lambda p: p.info['name'] and p.info['name'] == process),list(psutil.process_iter(['pid','name','exe','status'])))))
+            returns01 = getp('adoberpc_monitor.exe')
+            returns02 = getp('adoberpc.exe')
 
             QtTest.QTest.qWait(800)
 
-            if resp == '' or resp.startswith('INFO') or resp.startswith('정보'):
+            if len(returns01) == 0 and len(returns02) == 0:
                 log = change_logs(ui, log, "프로그램이 실행되지 않고 있습니다.\n프로그램 종료 절차 없이 다운로드를 시작합니다.")
             else:
                 log = change_logs(ui, log, "프로그램이 실행 중입니다.\n프로그램 종료를 시도합니다.")
@@ -238,7 +233,7 @@ if __name__ == "__main__" :
 
             log = change_logs(ui, log, "정보 읽는 중..")
             increase_percent(ui, 0, 8)
-            r = requests.get("%sinfo.json" % (usest))
+            r = requests.get("%slatest/info.json" % (usest))
             r = r.text
             data = json.loads(r)
             QtTest.QTest.qWait(1500)
@@ -313,7 +308,7 @@ if __name__ == "__main__" :
                 try:
                     os.remove('./stop.req')
                 except FileNotFoundError:
-                    print("A")
+                    pass
                 shutil.rmtree('./temp')
 
                 QtTest.QTest.qWait(1800)
@@ -338,48 +333,6 @@ if __name__ == "__main__" :
         Dialog.show()
         ui.runScript()
         sys.exit(app.exec_())
-
-        # 워메 이게 아니네
-
-        #_translate = QtCore.QCoreApplication.translate
-        #return_v = checkver()
-
-        #log = change_logs(ui, "", "현재 버전 : V%s\n대상 버전 : V%s" % (return_v[0], return_v[1]))
-
-        #time.sleep(1)
-        #log = change_logs(ui, log, "메인 프로그램 실행 여부를 체크합니다.. 잠시만 기다려 주세요")
-        #time.sleep(1)
-
-        #fd_popen = subprocess.Popen(["powershell.exe", "tasklist /FI 'ImageName eq adoberpc.exe' /v /fo List"], stdout=subprocess.PIPE).stdout
-        #resp = fd_popen.read().strip()
-        #fd_popen.close()
-        #resp = resp.decode()
-
-        #time.sleep(1.2)
-
-        #if resp == '' or resp.startswith('INFO') or resp.startswith('정보'):
-        #    log = change_logs(ui, log, "프로그램 실행 중 아님.")
-        #else:
-        #    log = change_logs(ui, log, "Adobe Discord RPC 프로그램 종료 중..")
-        #    time.sleep(0.8)
-        #    log = change_logs(ui, log, "관리자 권한을 묻는 메시지가 나오면 '예'를 눌러주세요.")
-        #    time.sleep(1)
-        #    os.system('exit.lnk')
-
-        #time.sleep(2)
-
-        #log = change_logs(ui, log, "정보 읽는 중..")
-        #r = requests.get("http://localhost:185/latest_%s/info.json" % (return_v[1]))
-        #r = r.text
-
-        #time.sleep(10)
-
-        ###########################################################################################################################################################
-
-        #ui.label.setText(_translate("Dialog", "프로그램 업데이트 중.. 잠시만 기다리세요"))
-
-        #increase_percent(ui, 0, 100)
-        #ui.label.setText(_translate("Dialog", "     프로그램이 곧 자동으로 실행됩니다."))
 
     except KeyboardInterrupt:
         perform_log("DEBUG", "콘솔 단에서 중지함.", datetime)

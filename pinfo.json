@@ -19,7 +19,7 @@
     "smallText": "파일명 : %Filename%"
 },
 {
-    "processName": "photoshop.exe",
+    "processName": "Photoshop.exe",
     "publicName": "Adobe Photoshop",
     "getver": 0,
     "splitBy": " @ ",
@@ -29,7 +29,7 @@
     "smallText": "파일명 : %Filename%"
 },
 {
-    "processName": "adobe premiere pro.exe",
+    "processName": "Adobe Premiere Pro.exe",
     "publicName": "Adobe Premiere Pro",
     "getver": 0,
     "splitBy": " - ",
@@ -49,7 +49,7 @@
     "smallText": "편집 하는중"
 },
 {
-    "processName": "illustrator.exe",
+    "processName": "Illustrator.exe",
     "publicName": "Adobe Illustrator",
     "getver": 0,
     "splitBy": " @ ",
@@ -59,7 +59,7 @@
     "smallText": "파일명 : %Filename%"
 },
 {
-    "processName": "afterfx.exe",
+    "processName": "AfterFX.exe",
     "publicName": "Adobe After Effects",
     "getver": 0,
     "splitBy": " - ",
@@ -69,7 +69,7 @@
     "smallText": "파일명 : %Filename%"
 },
 {
-    "processName": "adobe audition.exe",
+    "processName": "Adobe Audition.exe",
     "publicName": "Adobe Audition",
     "getver": 0,
     "splitBy": "미친얘왜파일명안뜸나처음알앗네야미친버전도안떠이게프로그램이냐",
@@ -79,7 +79,7 @@
     "smallText": "믹싱 작업중"
 },
 {
-    "processName": "adobe media encoder.exe",
+    "processName": "Adobe Media Encoder.exe",
     "publicName": "Adobe Media Encoder",
     "getver": 0,
     "splitBy": "아몰라어케든되겠지얘는파일명안뜨는걸나보고어쩌라고메인수정하기귀찮음",
@@ -89,7 +89,7 @@
     "smallText": "신나는 렌더링 하는중"
 },
 {
-    "processName": "indesign.exe",
+    "processName": "Indesign.exe",
     "publicName": "Adobe InDesign",
     "getver": 0,
     "splitBy": " @ ",
@@ -99,7 +99,7 @@
     "smallText": "파일명 : %Filename%"
 },
 {
-    "processName": "dimension.exe",
+    "processName": "Dimension.exe",
     "publicName": "Adobe Dimension",
     "getver": -1,
     "splitBy": "뭔놈의망할프로그램은파일명의안띄워줘아아아아악",
@@ -109,7 +109,7 @@
     "smallText": "모델링 하는중"
 },
 {
-    "processName": "animate.exe",
+    "processName": "Animate.exe",
     "publicName": "Adobe Animate",
     "getver": 0,
     "splitBy": "미친얘는또왜창네임전체가파일명이냐와",
@@ -119,7 +119,7 @@
     "smallText": "파일명 : %Filename%"
 },
 {
-    "processName": "dreamweaver.exe",
+    "processName": "Dreamweaver.exe",
     "publicName": "Adobe Dreamweaver",
     "getver": 0,
     "splitBy": "뭔놈의망할프로그램은파일안열면버전나오고파일열면창전체가파일명이야",
