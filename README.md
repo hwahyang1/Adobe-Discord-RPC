@@ -101,7 +101,7 @@ Some Icons by. [Flaticon](https://flaticon.com), [dribbble](https://dribbble.com
 Special Thanks. PenguinMilk17, 삼양, Uin, [NekoP](https://siro.dev)
 
 # 문의
-[E-Mail : hwahyang@adh.kro.kr](mailto:hwahyang@adh.kro.kr)
+[E-Mail : me@hwahyang.space](mailto:me@hwahyang.space)
 
 [Twitter : @adobediscordrpc](https://twitter.com/adobediscordrpc)
 
