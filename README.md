@@ -7,7 +7,7 @@
 
 **__The English version of the program will be released sometime in June 2020.__**
 
-[![Facebook Badge](https://img.shields.io/badge/Follow-Facebook-4267B2?style=for-the-badge)](https://www.facebook.com/adobediscordrpc) [![Twitter Badge](https://img.shields.io/badge/Follow-Twitter-1DA1F2?style=for-the-badge)](https://twitter.com/adobediscordrpc)
+[![Facebook Badge](https://img.shields.io/badge/Follow-Facebook-4267B2?style=for-the-badge)](https://www.facebook.com/adobediscordrpc) [![Twitter Badge](https://img.shields.io/badge/Follow-Twitter-1DA1F2?style=for-the-badge)](https://twitter.com/adobediscordrpc) [![Homepage Badge](https://img.shields.io/badge/Homepage-Click-7289DA?style=for-the-badge)](https://adoberpc.hwahyang.space)
 
 [![pypresence](https://img.shields.io/badge/using-pypresence-00bb88.svg?style=for-the-badge&logo=discord&logoWidth=20)](https://github.com/qwertyquerty/pypresence)  [![GitHub](https://img.shields.io/github/license/hwahyang1/Adobe-Discord-RPC?style=for-the-badge)](https://github.com/hwahyang1/Adobe-Discord-RPC/blob/master/LICENSE) ![GitHub top language](https://img.shields.io/github/languages/top/hwahyang1/Adobe-Discord-RPC?style=for-the-badge)
  
@@ -69,15 +69,7 @@ MAX OS X 지원 계획은 없습니다.
 | Maxon Cinema 4D | O | O | O | - |
 
 # 사용방법
-[Releses](https://github.com/hwahyang1/Adobe-Discord-RPC/releases)에서 최신 버전을 다운 받습니다.
-
-이후 설치 과정을 진행 하신 다음, Adobe Discord RPC를 실행 시킵니다.
-
-아무 알림도 뜨지 않는 것이 정상입니다. 업데이트 알림이 뜰 경우, 업데이트를 진행 하시면 됩니다.
-
-실행 이후, 지원 프로그램을 가동하시면 1분 이내에 플레이 알림이 뜨게 되며, 아래와 같이 RPC가 적용됩니다.
-
-![RPC Example](https://github.com/hwahyang1/Adobe-Discord-RPC/blob/master/img_for_github/RPC%20example.png)
+[홈페이지](https://adoberpc.hwahyang.space)를 참고하세요.
 
 # 프로그램 관련 안내
 
